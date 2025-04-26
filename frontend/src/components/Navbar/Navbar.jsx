@@ -27,55 +27,72 @@ const Navbar = ({ setShowLogin }) => {
       </div>
 
       <div className={`navbar-menu ${hamburger ? 'show' : ''}`}>
-        <Link 
-          to="/" 
-          onClick={() => handleMenuClick('home')} 
+        <Link
+          to="/"
+          onClick={() => handleMenuClick('home')}
           className={menu === 'home' ? 'active' : ''}
         >
           Home
         </Link>
-        <Link 
-          to="courses" 
-          onClick={() => handleMenuClick('course')} 
+        <Link
+          to="courses"
+          onClick={() => handleMenuClick('course')}
           className={menu === 'course' ? 'active' : ''}
         >
           Courses
         </Link>
-        <Link 
-          to="facility" 
-          onClick={() => handleMenuClick('facility')} 
+        <Link
+          to="facility"
+          onClick={() => handleMenuClick('facility')}
           className={menu === 'facility' ? 'active' : ''}
         >
           Facility
         </Link>
-        <Link 
-          to="downloads" 
-          onClick={() => handleMenuClick('results')} 
+        <Link
+          to="downloads"
+          onClick={() => handleMenuClick('results')}
           className={menu === 'results' ? 'active' : ''}
         >
           Downloads
         </Link>
-        <Link 
-          to="gallery" 
-          onClick={() => handleMenuClick('images')} 
+        <Link
+          to="gallery"
+          onClick={() => handleMenuClick('images')}
           className={menu === 'images' ? 'active' : ''}
         >
           Images
         </Link>
-        <Link 
-          to="contact-us" 
-          onClick={() => handleMenuClick('contact')} 
+        <Link
+          to="contact-us"
+          onClick={() => handleMenuClick('contact')}
           className={menu === 'contact' ? 'active' : ''}
         >
           Contact Us
         </Link>
-        <Link 
-          to="about-us" 
-          onClick={() => handleMenuClick('about')} 
+        <Link
+          to="about-us"
+          onClick={() => handleMenuClick('about')}
           className={menu === 'about' ? 'active' : ''}
         >
           About
         </Link>
+
+        <div className="navbar-button-sidebar">
+          <button
+            style={{
+              color: 'white',
+              border: '1px solid grey',
+              backgroundColor: 'transparent',
+              padding: '8px 20px',
+              borderRadius: '20px',
+              cursor: 'pointer'
+            }}
+            onClick={() => setShowLogin(true)}
+          >
+            Login
+          </button>
+        </div>
+
       </div>
 
       <div className="navbar-right">

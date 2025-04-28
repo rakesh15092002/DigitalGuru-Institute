@@ -8,25 +8,57 @@
 
 .material-title-items {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, auto);  /* Two rows */
     gap: 20px;
     justify-content: center;
+    align-items: stretch; /* Ensure grid items stretch to fill container */
     padding: 20px;
     cursor: pointer;
-}
-
-.material-title-item {
+  }
+  
+  .material-title-item {
     background-color: rgb(50, 147, 212);
     border-radius: 10px;
     text-align: center;
     color: white;
     padding: 15px;
     transition: 0.3s;
-}
-
-.material-title-item:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure items stretch to fill grid cell */
+  }
+  
+  .material-title-item:hover {
     background-color: darkred;
-}
+  }
+  
+  /* Responsive Design */
+  
+  /* For large screens, maintain the 2x2 grid */
+  @media (max-width: 1024px) {
+    .material-title-items {
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      grid-template-rows: repeat(2, auto); /* Two rows */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .material-title-items {
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      grid-template-rows: repeat(2, auto); /* Two rows */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .material-title-items {
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      grid-template-rows: repeat(2, auto); /* Two rows */
+    }
+  }
+  
+  
 
 /* Download Section */
 .download-material {
@@ -100,6 +132,12 @@ button:hover {
 }
 
 /* Responsive Design */
+
+@media (max-width: 1024px) {
+    .download-material-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 @media (max-width: 768px) {
     .download-material-items {
         grid-template-columns: repeat(2, 1fr);

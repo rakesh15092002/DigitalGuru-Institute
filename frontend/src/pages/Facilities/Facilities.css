@@ -72,79 +72,94 @@
 /* ✅ Responsive Design */
 @media (max-width: 1024px) {
   .facilities-container {
-      max-width: 90%;
+    max-width: 90%;
   }
 
   .facility-section {
-      flex-direction: column;
-      text-align: center;
-      padding: 30px;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
   }
 
   .facility-content,
   .facility-image {
-      width: 100%;
+    width: 100%;
   }
 
   .facility-content h2 {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 
   .facility-content p {
-      font-size: 0.95rem;
+    font-size: 0.95rem;
+  }
+
+  /* Rotate Odd Cards on Small Screens and Swap Content */
+  .facility-section:nth-child(even) {
+    flex-direction: column-reverse; /* Swap the order: image at bottom, text at top */
   }
 }
 
 @media (max-width: 768px) {
   .facilities {
-      padding: 40px 15px;
+    padding: 40px 15px;
   }
 
   .facilities-title {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .facility-section {
-      padding: 20px;
-      gap: 15px;
+    padding: 20px;
+    gap: 15px;
   }
 
   .facility-content h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .facility-content p {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
   .facility-image img {
-      border-radius: 8px;
+    border-radius: 8px;
+  }
+
+  /* Rotate Odd Cards on Small Screens and Swap Content */
+  .facility-section:nth-child(even) {
+    flex-direction: column-reverse; /* Swap the order: image at bottom, text at top */
   }
 }
 
 @media (max-width: 480px) {
   .facilities {
-      padding: 30px 10px;
+    padding: 30px 10px;
   }
 
   .facilities-title {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
   }
 
   .facility-section {
-      padding: 15px;
+    padding: 15px;
   }
 
   .facility-content h2 {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
   }
 
   .facility-content p {
-      font-size: 0.85rem;
+    font-size: 0.85rem;
   }
 
   .facility-image img {
-      border-radius: 6px;
+    border-radius: 6px;
+  }
+
+  /* Rotate Odd Cards on Extra Small Screens and Swap Content */
+  .facility-section:nth-child(even) {
+    flex-direction: column-reverse; /* Swap the order: image at bottom, text at top */
   }
 }

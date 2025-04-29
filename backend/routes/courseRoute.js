@@ -5,6 +5,6 @@ const courseRouter = express.Router();
 
 courseRouter.post('/add',addCourse);
 courseRouter.get('/get', getAllCourses);
-courseRouter.post('/delete/:id', deleteCourse);
+courseRouter.delete('/delete/:id', deleteCourse);
 
 export default courseRouter;

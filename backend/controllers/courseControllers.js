@@ -5,6 +5,7 @@ import course from "../models/courseModel.js";
 // add courses
 export const addCourse = async (req, res) => {
     const { name, duration, fees, description, image } = req.body;
+    console.log("hii")
 
     if (!name || !duration || !fees || !description || !image) {
         return res.json({ success: false, message: "All fields are required" });

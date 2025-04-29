@@ -11,6 +11,7 @@ import ContactUs from './pages/ContactUs/ContactUs'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import Gallery from './pages/Gallery/Gallery'
 import Sidebar from './components/Sidebar/Sidebar'
+import UserRegister from './pages/UserRegister/UserRegister'
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path='/gallery' element={<Gallery/>} />
           <Route path='/contact-us' element={<ContactUs/>} />
           <Route path='/about-us' element={<About />} />
+          <Route path='/register' element={<UserRegister/>} />
         </Routes>
       </div>
       <Footer />

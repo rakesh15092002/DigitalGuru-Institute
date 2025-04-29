@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import studentRouter from './routes/studentRoutes.js';
 import courseRouter from './routes/courseRoute.js';
+import adminRouter from './routes/adminRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors());
 // API Routes
 app.use("/api/student", studentRouter);  // ✅ Check this is correctly defined
 app.use("/api/course",courseRouter);
+app.use('/api/admin',adminRouter);
 
 // Database connection
 connectDB();

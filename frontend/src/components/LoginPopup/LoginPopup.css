@@ -41,6 +41,28 @@
     cursor: pointer;
 }
 
+.radio-section {
+    display: flex;
+    gap: 30px;
+    margin: 15px 0;
+  }
+  
+  .radio-section-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  
+  .radio-section-content input[type="radio"] {
+    cursor: pointer;
+  }
+  
+  .radio-section-content span {
+    font-size: 16px;
+    color: #333;
+  }
+  
 .login-popup-input {
     display: flex;
     flex-direction: column;

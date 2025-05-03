@@ -70,7 +70,7 @@ const TestimonialsSlider = () => {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   }}
-  speed={2500}
+  speed={500}
   modules={[Pagination, Navigation]} // Removed FreeMode and Autoplay
   className="mySwiper"
   breakpoints={{

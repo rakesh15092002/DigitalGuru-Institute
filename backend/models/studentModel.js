@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import course from "./courseModel.js"; // Reference to the Course Model
 const { Schema } = mongoose;
 
 const studentSchema = new Schema({
@@ -7,15 +8,23 @@ const studentSchema = new Schema({
     password: { type: String, required: true },
     phone: { type: String, required: true },
     address: { type: String, required: true },
-    course: { type: String, required: true },
+
+    // Multiple courses a student can enroll in
+    courseEnrolled: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "course",
+        required: true,
+    }],
+
     joinDate: { type: Date, required: true },
     gender: { type: String, required: true },
     fatherName: { type: String, required: true },
     motherName: { type: String, required: true },
     dob: { type: Date, required: true },
+
     totalFee: { type: Number, required: true },
     paidFee: { type: Number, default: 0 },
-    dueFee: { type: Number }, // will be auto-calculated
+    dueFee: { type: Number }, // Will be auto-calculated
     image: { type: String, required: true }
 });
 

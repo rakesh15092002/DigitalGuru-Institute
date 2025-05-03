@@ -77,6 +77,10 @@ const Navbar = ({ setShowLogin }) => {
           About
         </Link>
 
+        <Link to="/admin">
+        admin
+        </Link>
+
         <div className="navbar-button-sidebar">
           <button
             style={{

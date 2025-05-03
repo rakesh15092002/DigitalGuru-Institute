@@ -1,0 +1,13 @@
+.admin-layout {
+    display: flex;
+  }
+  
+  .admin-main-content {
+    /* margin-left: 250px; match the sidebar width */
+    padding: 20px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+  }
+  

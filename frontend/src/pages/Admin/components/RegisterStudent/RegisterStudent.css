@@ -1,0 +1,72 @@
+.register-student-page {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.register-student-page h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rs-student-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Ensure space between form sections */
+}
+
+.student-information-section,
+.student-address-section,
+.student-contact-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Added gap between sections for consistency */
+}
+
+.student-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.student-info input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 15px; /* Added margin to create space between input fields */
+}
+
+.student-DOB input,
+.student-address input,
+.student-contact-section input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px; /* Added margin for spacing */
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .student-info {
+        flex-direction: column;
+    }
+}

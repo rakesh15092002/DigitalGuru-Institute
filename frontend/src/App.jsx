@@ -18,6 +18,7 @@ import AdminLayout from './pages/Admin/components/AdminLayout/AdminLayout';
 import ManageCourse from './pages/Admin/ManageCourse/ManageCourse';
 import StudyMaterial from './pages/Admin/StudyMaterial/StudyMaterial';
 // import AdminLayout from './components/AdminLayout/AdminLayout';
+import RegisterStudent from './pages/Admin/components/RegisterStudent/RegisterStudent'
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -48,6 +49,7 @@ const App = () => {
             <Route path='manage-student' element={<ManageStudent/>} />
             <Route path='manage-course' element={<ManageCourse/>}/>
             <Route path= 'manage-download' element={<StudyMaterial/>}/>
+            <Route path='register-student' element={<RegisterStudent/>} />
           </Route>
 
           <Route path='*' element={<h1>404 page not found</h1>} />

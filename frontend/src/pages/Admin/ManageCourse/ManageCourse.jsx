@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ManageCourse.css';
 
 const ManageCourse = () => {
+  
   const [courses, setCourses] = useState([
     {
       id: 1,

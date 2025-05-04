@@ -1,4 +1,5 @@
 .register-student-page {
+    margin-top: 50px;
     background-color: #f9f9f9;
     min-height: 100vh;
     box-sizing: border-box;
@@ -9,6 +10,21 @@
     font-size: 28px;
     font-weight: bold;
     color: #333;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.course-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
 }
 
 .rs-student-content {
@@ -23,15 +39,20 @@
 form {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Ensure space between form sections */
+    gap: 25px;
+    /* Ensure space between form sections */
 }
 
 .student-information-section,
 .student-address-section,
-.student-contact-section {
+.student-contact-section,
+.student-course-section {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Added gap between sections for consistency */
+    gap: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 15px
 }
 
 .student-info {
@@ -47,7 +68,8 @@ form {
     border-radius: 5px;
     font-size: 14px;
     width: 100%;
-    margin-bottom: 15px; /* Added margin to create space between input fields */
+    margin-bottom: 15px;
+    /* Added margin to create space between input fields */
 }
 
 .student-DOB input,
@@ -58,7 +80,8 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    margin-bottom: 15px; /* Added margin for spacing */
+    margin-bottom: 15px;
+    /* Added margin for spacing */
 }
 
 input::placeholder {

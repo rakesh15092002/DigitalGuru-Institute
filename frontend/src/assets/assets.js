@@ -18,6 +18,8 @@ import recomended from './recomended.avif'
 import coursera from './coursera.png'
 import man_back2 from './man_back2.jpg'
 import hero_img from './hero_img.png'
+import PhotoShop from './PhotoShop.png';
+
 
 import course_1 from './ccc.jpg'
 import course_2 from './DCA.jpg'
@@ -50,7 +52,8 @@ export const assets ={
     coursera,course_11,
     photo_1,
     man_back2,
-    hero_img 
+    hero_img ,
+    PhotoShop
 
 }
 

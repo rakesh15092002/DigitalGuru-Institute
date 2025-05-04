@@ -74,6 +74,7 @@ const RegisterStudent = () => {
               ))}
             </div>
           </div>
+          <button>submit</button>
         </form>
       </div>
     </div>

@@ -42,11 +42,22 @@ form {
     gap: 25px;
     /* Ensure space between form sections */
 }
+form button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 230px;
+    font-size: 20px;
+    margin-inline: auto;
+}
 
 .student-information-section,
 .student-address-section,
 .student-contact-section,
-.student-course-section {
+.student-course-sectioncd {
     display: flex;
     flex-direction: column;
     gap: 20px;

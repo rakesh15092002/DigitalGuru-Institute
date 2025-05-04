@@ -18,26 +18,25 @@ import recomended from './recomended.avif'
 import coursera from './coursera.png'
 import man_back2 from './man_back2.jpg'
 import hero_img from './hero_img.png'
-import PhotoShop from './PhotoShop.png';
-
 
 import course_1 from './ccc.jpg'
 import course_2 from './DCA.jpg'
 import course_3 from './excel.png'
 import course_4 from './o-level.jpg'
-import course_5 from './PhotoShop.png'
+// 🔴 Removed: import course_5 from './PhotoShop.png'
 import course_6 from './tally.png'
 import course_11 from './course_11.png'
 
 import photo_1 from './revard.jpg'
 
-export const assets ={
+export const assets = {
     logo,
     background_img,
     themePhoto,
     darkTheme,
     rating_stars,
-    director_photo,location,
+    director_photo,
+    location,
     facebook_icon,
     linkedin_icon,
     twitter_icon,
@@ -49,12 +48,12 @@ export const assets ={
     cross_icon,
     course_3,
     recomended,
-    coursera,course_11,
+    coursera,
+    course_11,
     photo_1,
     man_back2,
-    hero_img ,
-    PhotoShop
-
+    hero_img
+    // 🔴 Removed: PhotoShop
 }
 
 export const course_list = [
@@ -112,7 +111,6 @@ export const course_list = [
         category: "Design Course",
         popular: false
     }
-
 ];
 
 export const image_list = [
@@ -121,19 +119,16 @@ export const image_list = [
         image: photo_1,
         title: "Getting reveards",
     },
-
     {
         _id: "2",
         image: photo_1,
         title: "Getting reveards",
     },
-
     {
         _id: "3",
         image: photo_1,
         title: "Getting reveards",
     },
-
     {
         _id: "4",
         image: photo_1,

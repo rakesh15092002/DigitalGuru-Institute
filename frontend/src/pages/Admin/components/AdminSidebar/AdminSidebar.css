@@ -4,26 +4,32 @@
     height: 100vh;
     left: 0;
     top: 0;
+    
 }
 
 .sidebar-content {
     width: 250px;
     min-height: 100vh;
-    background-color: #f4f4f4; /* Light gray background */
-    border-right: 1px solid #ccc; /* Right border for separation */
-    padding-top: 20px; /* Space from the top */
-    overflow-y: auto; /* Scroll if content overflows */
+    background-color: #f4f4f4; 
+    border-right: 1px solid #ccc;
+    overflow-y: auto; 
 }
 
 .sidebar-content h2 {
+    margin-top: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    background-color: gray;
+    padding: 10px;
 }
 
 .sidebar-list {
     list-style: none;
-    padding-top: 10px;
-    padding-left: 5px;
+    margin-top: 5px;
+    padding-top: 2px;
+    padding-left: 10px;
 }
 
 .sidebar-list-li {

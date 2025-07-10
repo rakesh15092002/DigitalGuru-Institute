@@ -1,40 +1,68 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './ManageStudent.css';
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import "./ManageStudent.css";
+import StoreContext from "../../../context/StoreContext";
+import axios from "axios";
 
 const ManageStudent = () => {
   const navigate = useNavigate();
+  const { token, url } = useContext(StoreContext);
 
-  const [students, setStudents] = useState([
-    { id: 1, name: 'Rakesh Maurya', course: 'CCC', paidFee: 3000 },
-    { id: 2, name: 'Priya Sharma', course: 'Tally', paidFee: 2500 },
-    { id: 3, name: 'Aman Verma', course: 'DSA', paidFee: 5000 },
-    { id: 4, name: 'Anjali Yadav', course: 'Excel', paidFee: 2200 },
-    { id: 5, name: 'Sandeep Singh', course: 'ADCA', paidFee: 4000 },
-    { id: 6, name: 'Pooja Verma', course: 'Photoshop', paidFee: 2800 },
-  ]);
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const res = await axios.get(`${url}/api/admin/get-student`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log("hii");
+        setStudents(res.data.students);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
+  }, [token]);
 
   const handleEdit = (id) => {
     navigate(`/admin/edit-student/${id}`);
   };
 
-  const handleRemove = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to remove this student?");
-    if (confirmDelete) {
-      setStudents(prev => prev.filter(student => student.id !== id));
+  const handleRemove = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to remove this student?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`${url}/api/admin/remove-student/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setStudents((prev) => prev.filter((student) => student._id !== id));
+    } catch (error) {
+      console.error("Error deleting student:", error);
+      alert("Failed to delete student");
     }
   };
 
   return (
-    <div className='manage-student'>
+    <div className="manage-student">
       <div className="headin-registration">
         <h2>Student Course Fee Details</h2>
         <div className="registration-button">
-          <button onClick={() => navigate('/admin/register-student')}>New Registration</button>
+          <button onClick={() => navigate("/admin/register-student")}>
+            New Registration
+          </button>
         </div>
       </div>
 
-      <table className='student-table'>
+      <table className="student-table">
         <thead>
           <tr>
             <th>Sr. No</th>
@@ -46,14 +74,27 @@ const ManageStudent = () => {
         </thead>
         <tbody>
           {students.map((student, index) => (
-            <tr key={student.id}>
+            <tr key={student._id}>
               <td>{index + 1}</td>
               <td>{student.name}</td>
-              <td>{student.course}</td>
+              <td>{student.courseEnrolled[0]?.name || "N/A"}</td>
               <td>{student.paidFee}</td>
               <td>
-                <button className='edit-btn' onClick={() => handleEdit(student.id)}>Edit</button>
-                <button className='remove-btn' onClick={() => handleRemove(student.id)}>Remove</button>
+                <button
+                  className="edit-btn"
+                  onClick={() =>
+                    navigate(`/admin/update-student/${student._id}`)
+                  }
+                >
+                  Edit
+                </button>
+
+                <button
+                  className="remove-btn"
+                  onClick={() => handleRemove(student._id)}
+                >
+                  Remove
+                </button>
               </td>
             </tr>
           ))}

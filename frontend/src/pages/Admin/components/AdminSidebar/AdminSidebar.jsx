@@ -6,7 +6,7 @@ const AdminSidebar = () => {
   return (
     <div className="admin-sidebar">
       <div className="sidebar-content">
-        <h2>Admin Panel</h2>
+        <h2>SoftDev TallyGuru</h2>
         <ul className="sidebar-list">
           <li className="sidebar-list-li">
             <Link to="/admin/manage-student">Student</Link>

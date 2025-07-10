@@ -1,21 +1,44 @@
-import { createContext, useState } from "react";
+// context/StoreContext.js
+import { createContext, useState, useEffect } from "react";
 import { course_list } from "../assets/assets";
 
-// ✅ Context create kiya (default `{}` diya taaki `null` errors avoid ho)
 const StoreContext = createContext({});
 
-export const StoreContextProvider = (props) => {
+export const StoreContextProvider = ({ children }) => {
   const url = "http://localhost:4000";
-  const [token,setToken]= useState("");
+
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [role, setRole] = useState(localStorage.getItem("role") || "");
+
+  // Keep localStorage in sync
+  useEffect(() => {
+    if (token) localStorage.setItem("token", token);
+    else localStorage.removeItem("token");
+  }, [token]);
+
+  useEffect(() => {
+    if (role) localStorage.setItem("role", role);
+    else localStorage.removeItem("role");
+  }, [role]);
+
+  const logout = () => {
+    setToken("");
+    setRole("");
+  };
+
   const contextValue = {
     course_list,
     url,
+    token,
     setToken,
+    role,
+    setRole,
+    logout,
   };
 
   return (
     <StoreContext.Provider value={contextValue}>
-      {props.children}
+      {children}
     </StoreContext.Provider>
   );
 };

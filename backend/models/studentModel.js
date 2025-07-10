@@ -15,7 +15,6 @@ const studentSchema = new Schema({
         ref: "course",
         required: true,
     }],
-
     joinDate: { type: Date, required: true },
     gender: { type: String, required: true },
     fatherName: { type: String, required: true },

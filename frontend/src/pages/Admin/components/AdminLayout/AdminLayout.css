@@ -1,13 +1,56 @@
+/* Whole layout container */
 .admin-layout {
-    display: flex;
-  }
-  
-  .admin-main-content {
-    /* margin-left: 250px; match the sidebar width */
-    padding: 20px;
-    width: calc(100% - 250px);
-    min-height: 100vh;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-  }
-  
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navbar */
+.admin-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  z-index: 1000;
+}
+
+/* Sidebar */
+/* Sidebar (NO scroll) */
+.admin-sidebar {
+  position: fixed;
+  /* top: 60px; */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 60px);
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+
+/* Main content area */
+.admin-main-content {
+  /* margin-top: 60px;         space for navbar */
+  margin-left: 250px;       /* space for sidebar */
+  /* padding: 20px; */
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  width: calc(100% - 250px);
+  background-color: #f9f9f9;
+}
+.admin-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}

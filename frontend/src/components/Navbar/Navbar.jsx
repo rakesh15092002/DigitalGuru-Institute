@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
+import StoreContext from "../../context/StoreContext"; // 👈 context import
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const [hamburger, setHamburger] = useState(false);
+
+  // 👇 context se token & role le rahe hain
+  const { token, role } = useContext(StoreContext);
 
   // Toggle hamburger menu
   const toggleHamburger = () => {
@@ -15,7 +19,7 @@ const Navbar = ({ setShowLogin }) => {
   // Close hamburger when a menu item is clicked
   const handleMenuClick = (item) => {
     setMenu(item);
-    setHamburger(false); // Close the hamburger menu
+    setHamburger(false);
   };
 
   return (
@@ -77,7 +81,10 @@ const Navbar = ({ setShowLogin }) => {
           About
         </Link>
 
-        <Link to="/admin">admin</Link>
+        {/* ✅ Admin route sirf tabhi dikhe jab login ho aur role admin ho */}
+        {token && role === "admin" && (
+          <Link to="/admin">Admin</Link>
+        )}
 
         <div className="navbar-button-sidebar">
           <button
@@ -101,7 +108,6 @@ const Navbar = ({ setShowLogin }) => {
           <button onClick={() => setShowLogin(true)}>Login</button>
         </div>
       </div>
-      
 
       {/* Hamburger Menu Button */}
       <div

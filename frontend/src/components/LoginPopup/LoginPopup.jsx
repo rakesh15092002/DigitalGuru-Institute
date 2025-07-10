@@ -1,3 +1,4 @@
+// components/LoginPopup/LoginPopup.jsx
 import React, { useContext, useState } from "react";
 import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
@@ -6,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const LoginPopup = ({ setShowLogin }) => {
-  const { url, setToken } = useContext(StoreContext);
+  const { url, setToken, setRole } = useContext(StoreContext);
 
   const [data, setData] = useState({
     email: "",
@@ -16,13 +17,12 @@ const LoginPopup = ({ setShowLogin }) => {
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    setData((prevData) => ({ ...prevData, [name]: value }));
+    setData((prev) => ({ ...prev, [name]: value }));
   };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    // ✅ Determine route based on userType
     let route;
     if (data.userType === "student") route = "/api/student/login";
     else if (data.userType === "faculty") route = "/api/faculty/login";
@@ -36,7 +36,7 @@ const LoginPopup = ({ setShowLogin }) => {
       const res = await axios.post(url + route, data);
       if (res.data.success) {
         setToken(res.data.token);
-        localStorage.setItem("token", res.data.token);
+        setRole(data.userType); // 👈 Set role for access control
         toast.success("Login successful!");
         setShowLogin(false);
       } else {
@@ -44,7 +44,7 @@ const LoginPopup = ({ setShowLogin }) => {
       }
     } catch (err) {
       toast.error("Something went wrong. Please try again.");
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -53,45 +53,30 @@ const LoginPopup = ({ setShowLogin }) => {
       <form onSubmit={onSubmitHandler} className="login-popup-container">
         <div className="login-popup-title">
           <h1>Login</h1>
-          <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="close" />
+          <img
+            src={assets.cross_icon}
+            alt="close"
+            onClick={() => setShowLogin(false)}
+          />
         </div>
 
         <div className="login-popup-input">
-          {/* ✅ Radio Inputs */}
+          {/* Role Select */}
           <div className="radio-section">
-            <div className="radio-section-content">
-              <input
-                type="radio"
-                name="userType"
-                value="student"
-                checked={data.userType === "student"}
-                onChange={onChangeHandler}
-              />
-              <span>Student</span>
-            </div>
-            <div className="radio-section-content">
-              <input
-                type="radio"
-                name="userType"
-                value="faculty"
-                checked={data.userType === "faculty"}
-                onChange={onChangeHandler}
-              />
-              <span>Faculty</span>
-            </div>
-            <div className="radio-section-content">
-              <input
-                type="radio"
-                name="userType"
-                value="admin"
-                checked={data.userType === "admin"} // ✅ fixed this
-                onChange={onChangeHandler}
-              />
-              <span>Admin</span>
-            </div>
+            {["student", "faculty", "admin"].map((role) => (
+              <div key={role} className="radio-section-content">
+                <input
+                  type="radio"
+                  name="userType"
+                  value={role}
+                  checked={data.userType === role}
+                  onChange={onChangeHandler}
+                />
+                <span>{role.charAt(0).toUpperCase() + role.slice(1)}</span>
+              </div>
+            ))}
           </div>
 
-          {/* Email & Password */}
           <input
             type="email"
             name="email"
@@ -111,7 +96,9 @@ const LoginPopup = ({ setShowLogin }) => {
         <button type="submit">Login</button>
 
         <div className="login-popup-reset">
-          <p><span>Reset Password</span></p>
+          <p>
+            <span>Reset Password</span>
+          </p>
         </div>
       </form>
     </div>

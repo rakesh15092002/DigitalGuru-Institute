@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Student from "./studentModel.js";
+// import Student from "./studentModel.js";
 
 const { Schema } = mongoose;    
 
@@ -24,18 +24,6 @@ const courseSchema = new Schema({
         type: String,
         required: true,
     },
-    studentsEnrolled: [
-        {
-          studentId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Student", // Reference to Student model
-          },
-          enrollmentDate: {
-            type: Date,
-            default: Date.now,
-          },
-        },
-      ],
 
 
 })

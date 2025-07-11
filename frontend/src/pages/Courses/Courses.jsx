@@ -46,7 +46,7 @@ const Courses = () => {
                 image={item.image}
                 description={item.description}
                 category={item.category}
-                price={item.price}
+                price={item.fees}
               />
             ))}
         </div>

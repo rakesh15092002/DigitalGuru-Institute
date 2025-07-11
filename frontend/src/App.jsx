@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import ScrollToTop from "./components/ScrollToTop"; // ✅ import this
 import Home from './pages/Home/Home';
 import Courses from './pages/Courses/Courses';
 import Facilities from './pages/Facilities/Facilities';
@@ -33,6 +34,7 @@ const App = () => {
     <>
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       {!isAdminRoute && <Navbar setShowLogin={setShowLogin} />}
+       <ScrollToTop />
       <div className='app'>
         <Routes>
           {/* Public Routes */}

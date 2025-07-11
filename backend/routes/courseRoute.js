@@ -1,10 +1,14 @@
 import express from 'express';
-import { addCourse, deleteCourse, getAllCourses } from '../controllers/courseControllers.js';
+import { addCourse, getAllCourses, deleteCourse } from '../controllers/courseControllers.js';
+import { upload } from '../middleware/multer.js';
+import adminMiddleware from '../middleware/adminMiddleware.js';
 
-const courseRouter = express.Router();
+const router = express.Router();
 
-courseRouter.post('/add',addCourse);
-courseRouter.get('/get', getAllCourses);
-courseRouter.delete('/delete/:id', deleteCourse);
+// Change this 👇
+router.post('/add',adminMiddleware, upload.single('image'), addCourse);
 
-export default courseRouter;
+router.get('/get', getAllCourses);
+router.delete('/delete/:id', adminMiddleware, deleteCourse);
+
+export default router;

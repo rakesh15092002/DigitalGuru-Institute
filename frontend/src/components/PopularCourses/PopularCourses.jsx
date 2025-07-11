@@ -7,24 +7,25 @@ const PopularCourses = () => {
     const { course_list } = useContext(StoreContext);
     const [popularCourses, setPopularCourses] = useState([]);
 
-    useEffect(() => {
-        const totalPopularCourses = course_list.filter((item) => item.popular);
-        setPopularCourses(totalPopularCourses.slice(0, 3));
-    }, [course_list]); // Dependency array me course_list add kiya
+   useEffect(() => {
+  const totalPopularCourses = course_list.slice(0, 3); // ✅ First 3
+  setPopularCourses(totalPopularCourses);
+}, [course_list]);
+
 
     return (
         <div className="course-display">
             <h1>Our Popular Courses</h1>
             <div className="course-display-list">
                 {popularCourses.map((item, index) => (
-                    <CourseItem
+                    <CourseItem index
                         key={item._id} // `_id` ko key banana better practice hai
                         id={item._id}
                         name={item.name}
                         image={item.image}
                         description={item.description}
                         category={item.category}
-                        price={item.price}
+                        price={item.fees}
                     />
                 ))}
             </div>

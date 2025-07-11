@@ -14,7 +14,7 @@ const CourseItem = ({ id, name, price, description, category, image }) => {
                     <img src={assets.rating_stars} alt="" />
                 </div>
                 <p>{description}</p>
-                <p className="course-item-price">{price}</p>
+                <p className="course-item-price">₹ {price}</p>
             </div>
         </div>
     )

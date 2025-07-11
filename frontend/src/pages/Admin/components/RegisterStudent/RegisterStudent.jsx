@@ -3,11 +3,13 @@ import './RegisterStudent.css';
 import axios from 'axios';
 import StoreContext from '../../../../context/StoreContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterStudent = () => {
   const { url, token } = useContext(StoreContext);
   const courses = ['CCC', 'DCA', 'DSA', 'Tally', 'Excel', 'Photoshop', 'ADCA', 'O Level'];
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -95,6 +97,7 @@ const RegisterStudent = () => {
       } else {
         toast.error(res.data.message || "Failed to register student.");
       }
+      navigate('/admin/manage-student')
     } catch (err) {
       console.error(err);
       toast.error("Error occurred while registering student.");

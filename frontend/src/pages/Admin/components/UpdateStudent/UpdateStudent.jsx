@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import StoreContext from '../../../../context/StoreContext';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 
 const UpdateStudent = () => {
   const { id } = useParams();
   const { url, token } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   const courses = ['CCC', 'DCA', 'DSA', 'Tally', 'Excel', 'Photoshop', 'ADCA', 'O Level'];
   const [selectedCourses, setSelectedCourses] = useState([]);
@@ -115,6 +117,7 @@ const UpdateStudent = () => {
       } else {
         toast.error(res.data.message || 'Update failed');
       }
+      navigate('/admin/manage-student')
     } catch (err) {
       console.error(err);
       toast.error('Error updating student');

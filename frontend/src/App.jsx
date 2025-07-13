@@ -22,6 +22,8 @@ import StudyMaterial from './pages/Admin/StudyMaterial/StudyMaterial';
 import RegisterStudent from './pages/Admin/components/RegisterStudent/RegisterStudent'
 import UpdateStudent from './pages/Admin/components/UpdateStudent/UpdateStudent';
 import AddCourse from './pages/Admin/components/AddCourse/AddCourse';
+import AddTestimonial from './pages/Admin/components/AddTestimonials/AddTestimonial';
+import Testimonials from './pages/Admin/Testimonials/Testimonials';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -52,10 +54,12 @@ const App = () => {
             {/* <Route index element={<HomeAdmin />} /> */}
             <Route path='manage-student' element={<ManageStudent/>} />
             <Route path='manage-course' element={<ManageCourse/>}/>
+            <Route path='manage-testimonials' element={<Testimonials/>}/>
             <Route path= 'manage-download' element={<StudyMaterial/>}/>
             <Route path='register-student' element={<RegisterStudent/>} />
             <Route path='update-student/:id' element={<UpdateStudent/>}/>
             <Route path='add-course' element={<AddCourse/>}/>
+            <Route path='add-testimonials' element={<AddTestimonial/>}/>
           </Route>
 
           <Route path='*' element={<h1>404 page not found</h1>} />

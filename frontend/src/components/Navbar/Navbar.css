@@ -58,6 +58,53 @@
     display: none;
 }
 
+.navbar-profile {
+  position: relative;
+}
+
+/* By default hidden */
+.navbar-profile-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  top: 100%; /* Place dropdown just below the icon */
+  left: 0;
+}
+
+/* 👇 Show when either profile OR dropdown is hovered */
+.navbar-profile:hover .navbar-profile-dropdown,
+.navbar-profile-dropdown:hover {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff2ef;
+  padding: 12px 50px  12px 20px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  outline: 2px solid white;
+  list-style: none;
+}
+
+/* Dropdown items */
+.navbar-profile-dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Icon size */
+.navbar-profile-dropdown img {
+  width: 20px;
+}
+
+/* Hover effect */
+.navbar-profile-dropdown li:hover {
+  color: tomato;
+}
+
+
+
 .navbar-button button {
     background: transparent;
     font-size: 16px;

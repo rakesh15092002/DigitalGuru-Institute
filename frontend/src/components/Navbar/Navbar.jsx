@@ -82,9 +82,7 @@ const Navbar = ({ setShowLogin }) => {
         </Link>
 
         {/* ✅ Admin route sirf tabhi dikhe jab login ho aur role admin ho */}
-        {token && role === "admin" && (
-          <Link to="/admin">Admin</Link>
-        )}
+        {token && role === "admin" && <Link to="/admin">Admin</Link>}
 
         <div className="navbar-button-sidebar">
           <button
@@ -102,12 +100,29 @@ const Navbar = ({ setShowLogin }) => {
           </button>
         </div>
       </div>
-
-      <div className="navbar-right">
-        <div className="navbar-button">
-          <button onClick={() => setShowLogin(true)}>Login</button>
+      {token ? (
+        <div className="navbar-profile">
+          <img src={assets.profile_icon} alt="" />
+          <ul className="navbar-profile-dropdown">
+            <li >
+              <img src={assets.profile_icon} alt="" />
+              <p>Profile</p>
+            </li>
+            <hr />
+            <li >
+              <img src={assets.profile_icon} alt="" />
+              <p>Logout</p>
+            </li>
+          </ul>
         </div>
-      </div>
+      ) : (
+        <div className="navbar-right">
+          <div className="navbar-button">
+            <button onClick={() => setShowLogin(true)}>Login</button>
+          </div>
+        </div>
+      )}
+      
 
       {/* Hamburger Menu Button */}
       <div

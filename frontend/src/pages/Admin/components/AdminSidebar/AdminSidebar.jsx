@@ -15,6 +15,9 @@ const AdminSidebar = () => {
             <Link to="/admin/manage-course">Courses</Link>
           </li>
           <li className="sidebar-list-li">
+            <Link to="/admin/manage-testimonials">Testimonials</Link>
+          </li>
+          <li className="sidebar-list-li">
             <Link to="/admin/manage-download">Study Material</Link>
           </li>
           <li className="sidebar-list-li">
